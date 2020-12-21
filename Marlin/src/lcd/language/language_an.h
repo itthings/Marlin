@@ -212,6 +212,9 @@ namespace Language_an {
   PROGMEM Language_Str MSG_DAC_EEPROM_WRITE                = _UxGT("Escri. DAC EEPROM");
   PROGMEM Language_Str MSG_FILAMENT_CHANGE_OPTION_RESUME   = _UxGT("Resumir imp.");
 
+    PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");
+
   //
   // Filament Change screens show up to 3 lines on a 4-line display
   //                        ...or up to 2 lines on a 3-line display

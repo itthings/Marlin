@@ -150,7 +150,7 @@
 
 #endif // Z_SAFE_HOMING
 
-#if ENABLED(IMPROVE_HOMING_RELIABILITY)
+#if ENABLED(IMPROVE_HOMING_RELIABILITY) || ENABLED(ACCELERATED_HOMING) 
 
   slow_homing_t begin_slow_homing() {
     slow_homing_t slow_homing{0};
@@ -272,7 +272,7 @@ void GcodeSuite::G28() {
     #endif
   #endif
 
-  TERN_(IMPROVE_HOMING_RELIABILITY, slow_homing_t slow_homing = begin_slow_homing());
+  TERN_(IMPROVE_HOMING_RELIABILITY || ACCELERATED_HOMING, slow_homing_t slow_homing = begin_slow_homing());
 
   // Always home with tool 0 active
   #if HAS_MULTI_HOTEND

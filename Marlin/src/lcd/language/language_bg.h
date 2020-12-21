@@ -153,3 +153,6 @@ namespace Language_bg {
   PROGMEM Language_Str MSG_DELTA_CALIBRATE_CENTER          = _UxGT("Калибровка Център");
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Неправилен принтер");
 }
+
+  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");

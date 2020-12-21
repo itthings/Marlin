@@ -58,6 +58,8 @@
   #include "../../feature/host_actions.h"
 #endif
 
+void menu_test();
+
 void menu_tune();
 void menu_cancelobject();
 void menu_motion();
@@ -165,10 +167,21 @@ void menu_main() {
     #if ENABLED(HOST_START_MENU_ITEM) && defined(ACTION_ON_START)
       ACTION_ITEM(MSG_HOST_START_PRINT, host_action_start);
     #endif
-
     SUBMENU(MSG_MOTION, menu_motion);
-  }
+    
 
+  }
+  #if ENABLED(TEST_FEATURE)
+      SUBMENU(MSG_TEST, menu_test);
+    #endif
+
+
+  #ifdef CUSTOM_USER_MENU_TITLE
+      SUBMENU_P(PSTR(CUSTOM_USER_MENU_TITLE), menu_user);
+    #else
+      SUBMENU(MSG_USER_MENU, menu_user);
+  #endif
+  
   #if HAS_CUTTER
     SUBMENU(MSG_CUTTER(MENU), menu_spindle_laser);
   #endif

@@ -205,6 +205,9 @@ namespace Language_ca {
 
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Impressora incorrecta");
 
+    PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");
+
   //
   // Filament Change screens show up to 3 lines on a 4-line display
   //                        ...or up to 2 lines on a 3-line display

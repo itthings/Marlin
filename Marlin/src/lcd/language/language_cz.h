@@ -596,3 +596,5 @@ namespace Language_cz {
   PROGMEM Language_Str MSG_BACKLASH_CORRECTION             = _UxGT("Korekce");
   PROGMEM Language_Str MSG_BACKLASH_SMOOTHING              = _UxGT("Vyhlazení");
 }
+  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");

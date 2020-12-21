@@ -441,7 +441,7 @@ namespace Language_en {
   PROGMEM Language_Str MSG_TOUCHMI_ZTEST                   = _UxGT("Z Offset Test");
   PROGMEM Language_Str MSG_TOUCHMI_SAVE                    = _UxGT("Save");
   PROGMEM Language_Str MSG_MANUAL_DEPLOY_TOUCHMI           = _UxGT("Deploy TouchMI");
-  PROGMEM Language_Str MSG_MANUAL_DEPLOY                   = _UxGT("Deploy Z-Probe");
+  PROGMEM Language_Str MSG_MANUAL_DEPLOY                   = _UxGT("Deploy Z-Probe Motherfucker!!");
   PROGMEM Language_Str MSG_MANUAL_STOW                     = _UxGT("Stow Z-Probe");
   PROGMEM Language_Str MSG_HOME_FIRST                      = _UxGT("Home %s%s%s First");
   PROGMEM Language_Str MSG_ZPROBE_OFFSETS                  = _UxGT("Probe Offsets");
@@ -659,6 +659,9 @@ namespace Language_en {
   PROGMEM Language_Str MSG_REHEATING                       = _UxGT("Reheating...");
 
   PROGMEM Language_Str MSG_PROBE_WIZARD                    = _UxGT("Z Probe Wizard");
+
+  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");
 }
 
 #if FAN_COUNT == 1

@@ -358,4 +358,4 @@
 //
 //#define PIN_P0_02                        P0_02  // AUX1 (Interrupt Capable/ADC/Serial Port 0)
 //#define PIN_P0_03                        P0_03  // AUX1 (Interrupt Capable/ADC/Serial Port 0)
-//#define PS_ON_PIN                        P1_23  // SERVO P1.23
+#define PS_ON_PIN                       P2_00 //   P1_23  // SERVO P1.23
