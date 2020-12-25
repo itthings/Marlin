@@ -155,7 +155,7 @@
 #endif
 #define NICE_HOMING
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Have a nice day :)"
+#define CUSTOM_MACHINE_NAME "Have a nice xmas :)"
 #define TEST_FEATURE
 
 // Printer's unique ID, used by some programs to differentiate between machines.
@@ -1151,13 +1151,13 @@
 #define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED 200*60 //(40*60) //(16*60)
+#define XY_PROBE_SPEED 200*70 //(40*60) //(16*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST (HOMING_FEEDRATE_Z / 3)
+#define Z_PROBE_SPEED_FAST (HOMING_FEEDRATE_Z / 2)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 4)
+#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 3)
 
 /**
  * Multiple Probing
@@ -1563,8 +1563,8 @@
 
 // Homing speeds (mm/min)
 // Delta only homes to Z
-#define HOMING_FEEDRATE_XY 150*60//  (40*60)
-#define HOMING_FEEDRATE_Z  150*60 //(40*60) //(30*60)
+#define HOMING_FEEDRATE_XY 70*60//  (40*60)
+#define HOMING_FEEDRATE_Z  70*60 //(40*60) //(30*60)
 //?
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS

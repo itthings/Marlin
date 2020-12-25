@@ -1161,8 +1161,8 @@
       #define PROGRESS_BAR_BAR_TIME 2000  // (ms) Amount of time to show the bar
       #define PROGRESS_BAR_MSG_TIME 3000  // (ms) Amount of time to show the status message
       #define PROGRESS_MSG_EXPIRE   0     // (ms) Amount of time to retain the status message (0=forever)
-      //#define PROGRESS_MSG_ONCE         // Show the message for MSG_TIME then clear it
-      //#define LCD_PROGRESS_BAR_TEST     // Add a menu item to test the progress bar
+      #define PROGRESS_MSG_ONCE         // Show the message for MSG_TIME then clear it
+      #define LCD_PROGRESS_BAR_TEST     // Add a menu item to test the progress bar
     #endif
   #endif
 #endif
