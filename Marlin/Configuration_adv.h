@@ -191,7 +191,7 @@
   #define THERMAL_PROTECTION_PERIOD 40        // Seconds
   #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
 
-  //#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
+  #define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
   #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
     //#define NO_FAN_SLOWING_IN_PID_TUNING    // Don't slow fan speed during M303
   #endif
@@ -243,7 +243,7 @@
 #if ENABLED(PIDTEMP)
   // Add an experimental additional term to the heater power, proportional to the extrusion speed.
   // A well-chosen Kc value should add just enough power to melt the increased material volume.
-  //#define PID_EXTRUSION_SCALING
+  #define PID_EXTRUSION_SCALING
   #if ENABLED(PID_EXTRUSION_SCALING)
     #define DEFAULT_Kc (100) // heating power = Kc * e_speed
     #define LPQ_MAX_LEN 50
@@ -277,7 +277,7 @@
    * 5. Enable PID_FAN_SCALING_ALTERNATIVE_DEFINITION and enter the two identified Kf-values in
    *    PID_FAN_SCALING_AT_FULL_SPEED and PID_FAN_SCALING_AT_MIN_SPEED. Enter the minimum speed in PID_FAN_SCALING_MIN_SPEED
    */
-  //#define PID_FAN_SCALING
+  #define PID_FAN_SCALING
   #if ENABLED(PID_FAN_SCALING)
     //#define PID_FAN_SCALING_ALTERNATIVE_DEFINITION
     #if ENABLED(PID_FAN_SCALING_ALTERNATIVE_DEFINITION)
@@ -317,7 +317,7 @@
 #if ENABLED(AUTOTEMP)
   #define AUTOTEMP_OLDWEIGHT    0.98
   // Turn on AUTOTEMP on M104/M109 by default using proportions set here
-  //#define AUTOTEMP_PROPORTIONAL
+  #define AUTOTEMP_PROPORTIONAL
   #if ENABLED(AUTOTEMP_PROPORTIONAL)
     #define AUTOTEMP_MIN_P      0 // (°C) Added to the target temperature
     #define AUTOTEMP_MAX_P      5 // (°C) Added to the target temperature
@@ -327,7 +327,7 @@
 
 // Show Temperature ADC value
 // Enable for M105 to include ADC values read from temperature sensors.
-//#define SHOW_TEMP_ADC_VALUES
+#define SHOW_TEMP_ADC_VALUES
 
 /**
  * High Temperature Thermistor Support
@@ -347,14 +347,16 @@
 
 // The number of consecutive low temperature errors that can occur
 // before a min_temp_error is triggered. (Shouldn't be more than 10.)
-//#define MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED 0
+//
+
+#define MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED 10
 
 // The number of milliseconds a hotend will preheat before starting to check
 // the temperature. This value should NOT be set to the time it takes the
 // hot end to reach the target temperature, but the time it takes to reach
 // the minimum temperature your thermistor can read. The lower the better/safer.
 // This shouldn't need to be more than 30 seconds (30000)
-//#define MILLISECONDS_PREHEAT_TIME 0
+#define MILLISECONDS_PREHEAT_TIME 5000
 
 // @section extruder
 
@@ -1204,7 +1206,7 @@
    */
   #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
-    #define PLR_ENABLED_DEFAULT   false // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
+    #define PLR_ENABLED_DEFAULT   true // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
     //#define POWER_LOSS_RECOVER_ZHOME  // Z homing is needed for proper recovery. 99.9% of the time this should be disabled!
     //#define POWER_LOSS_ZRAISE       2 // (mm) Z axis raise on resume (on power loss with UPS)
@@ -2100,22 +2102,22 @@
   #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
   #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
                                                   // This short retract is done immediately, before parking the nozzle.
-  #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     40  // (mm/s) Unload filament feedrate. This can be pretty fast.
+  #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     70  // (mm/s) Unload filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
   #define FILAMENT_CHANGE_UNLOAD_LENGTH      750  // (mm) The length of filament for a complete unload.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
                                                   //   Set to 0 for manual unloading.
   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE   6  // (mm/s) Slow move when starting load.
-  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH     0  // (mm) Slow length, to allow time to insert material.
+  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH     10  // (mm) Slow length, to allow time to insert material.
                                                   // 0 to disable start loading and skip to fast load only
-  #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE  40  // (mm/s) Load filament feedrate. This can be pretty fast.
+  #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE  70  // (mm/s) Load filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   650  // (mm) Load length of filament, from extruder gear to nozzle.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   500  // (mm) Load length of filament, from extruder gear to nozzle.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
   #define ADVANCED_PAUSE_CONTINUOUS_PURGE         // Purge continuously up to the purge length until interrupted.
-  #define ADVANCED_PAUSE_PURGE_FEEDRATE        3  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
+  #define ADVANCED_PAUSE_PURGE_FEEDRATE        7  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
   #define ADVANCED_PAUSE_PURGE_LENGTH        150  // (mm) Length to extrude after loading.
                                                   //   Set to 0 for manual extrusion.
                                                   //   Filament can be extruded repeatedly from the Filament Change menu
@@ -2129,8 +2131,8 @@
   #define FILAMENT_UNLOAD_PURGE_LENGTH         8  // (mm) An unretract is done, then this length is purged.
   #define FILAMENT_UNLOAD_PURGE_FEEDRATE      25  // (mm/s) feedrate to purge before unload
 
-  #define PAUSE_PARK_NOZZLE_TIMEOUT           200  // (seconds) Time limit before the nozzle is turned off for safety.
-  #define FILAMENT_CHANGE_ALERT_BEEPS         20  // Number of alert beeps to play when a response is needed.
+  #define PAUSE_PARK_NOZZLE_TIMEOUT           500  // (seconds) Time limit before the nozzle is turned off for safety.
+  #define FILAMENT_CHANGE_ALERT_BEEPS         50  // Number of alert beeps to play when a response is needed.
   #define PAUSE_PARK_NO_STEPPER_TIMEOUT           // Enable for XYZ steppers to stay powered on during filament change.
 
   #define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
@@ -2510,9 +2512,9 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  #define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD
 
-  #define X_HYBRID_THRESHOLD     160  // [mm/s]
+  #define X_HYBRID_THRESHOLD     300  // [mm/s]
   #define X2_HYBRID_THRESHOLD    160
   #define Y_HYBRID_THRESHOLD     160
   #define Y2_HYBRID_THRESHOLD    160
@@ -3251,9 +3253,7 @@
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
   #define USER_SCRIPT_RETURN  // Return to status screen after a script
  
-  //todo: order these properly
-  #define USER_DESC_7 "BL On: M420 S1"
-  #define USER_GCODE_7 "M420 S1"
+
 
   #define USER_DESC_18 "G26 PLA"
   #define USER_GCODE_18 "G28\nG26 C1 B40 H200 P5 Q1" //R20
@@ -3261,23 +3261,28 @@
   #define USER_DESC_16 "G26 PLA 3mm ret"
   #define USER_GCODE_16 "G28\nG26 C1 B40 H200 P5 Q3" //R20
 
-  #define USER_DESC_6 "G26 PET 0.8"
-  #define USER_GCODE_6 "G28\nG26 C1 B50 H235 L0.6 S0.8 P5 Q1"
+
 
   #define USER_DESC_9 "G26 PET 0.4"
   #define USER_GCODE_9 "G28\nG26 C1 B50 H235 S0.4 P5 Q1"
 
   #define USER_DESC_1 "Calibrate"
-  #define USER_GCODE_1 "G28\nG33 V3\nG29 P0 V4\nG29 P1 V4\nG29 P3 V4\nG29 S1 V4\nG29 T0 V4\nG29 T1 V4\nG29 A\nG29 F 10.0\nM500\nM117 happy xmas"
+  #define USER_GCODE_1 "G28\nG33 V3\nM500\nM0 UBL Level...\nG29 P1\nG29 P3\nG29 S1 V4\nG29 T\nG29 A\nG29 F 10.0\nM500\nM117 happy xmas"
+
+#define USER_DESC_2 "G33 P1 V3"
+  #define USER_GCODE_2 "G33 P1 V3"
 
   #define USER_DESC_10 "G26 PLA 0.8"
   #define USER_GCODE_10 "G28\nG26 C1 B40 H200 L0.6 S0.8 P5 Q1"
 
-  #define USER_DESC_2 "FW Update / Reset"
-  #define USER_GCODE_2 "M997"
+  #define USER_DESC_6 "FW Update / Reset"
+  #define USER_GCODE6 "M997"
 
-  #define USER_DESC_3 "BL On & Z Off Test"
+  #define USER_DESC_3 "BL On & Z Off Test 0mm"
   #define USER_GCODE_3 "G28\nM420 S1\nG0 F11000 Z10\nG0 F200\nG0 Z0"
+
+  #define USER_DESC_5 "BL On & Z Off Test 1mm"
+  #define USER_GCODE_5 "G28\nM420 S1\nG0 F11000 Z10\nG0 F200\nG0 Z1"
 
   #define USER_DESC_11 "Home & Info"
   #define USER_GCODE_11 "M300 S2637 P133\nM300 S2349 P133\nM300 S1479 P266\nM300 S1661 P266\nM300 S2217 P133\nM300 S987 P133\nM300 S1174 P266\nM300 S1318 P266\nM300 S987 P133\nM300 S880 P133\nM300 S1108 P266\nM300 S1318 P266\nM300 S880 P532\nM300 S2637 P133\nM300 S2349 P133\nM300 S1479 P266\nM300 S1661 P266\nM300 S2217 P133\nM300 S987 P133\nM300 S1174 P266\nM300 S1318 P266\nM300 S987 P133\nM300 S880 P133\nM300 S1108 P266\nM300 S1318 P266\nM300 S880 P532\nM300 S2637 P133\nM300 S2349 P133\nM300 S1479 P266\nM300 S1661 P266\nM300 S2217 P133\nM300 S987 P133\nM300 S1174 P266\nM300 S1318 P266\nM300 S987 P133\nM300 S880 P133\nM300 S1108 P266\nM300 S1318 P266\nM300 S880 P532"
@@ -3285,8 +3290,8 @@
   #define USER_DESC_4 "It Doesnt Really Matter"
   #define USER_GCODE_4 "M300 S987 P250\nM300 S2637 P250\nM300 S3322 P250\nM300 S1760 P250\nM300 S3322 P250\nM300 S2637 P250\nM300 S987 P250\nM300 S880 P250\nM300 S3322 P250\nM300 S880 P250\nM300 S987 P750\nM300 S0 P500\nM300 S987 P125\nM300 S987 P125\nM300 S2637 P250\nM300 S3322 P250\nM300 S1760 P250\nM300 S3322 P250\nM300 S2637 P250\nM300 S987 P250\nM300 S880 P250\nM300 S1661 P250\nM300 S880 P250\nM300 S987 P750\nM300 S0 P250\nM300 S987 P125\nM300 S987 P125\nM300 S2217 P250\nM300 S2217 P125\nM300 S2637 P250\nM300 S2637 P125\nM300 S2959 P375\nM300 S2637 P125\nM300 S2637 P250\nM300 S0 P250\nM300 S2637 P125\nM300 S2637 P125\nM300 S2217 P250\nM300 S2217 P250\nM300 S2637 P250\nM300 S2637 P250\nM300 S2959 P250\nM300 S2637 P250\nM300 S2959 P250\nM300 S3322 P750\nM300 S0 P2000\nM300 S987 P500\nM300 S987 P500\nM300 S987 P250\nM300 S2959 P125"
 
-  #define USER_DESC_5 "Smooth Criminal"
-  #define USER_GCODE_5 "M300 S0 P75\nM300 S1108 P300\nM300 S1108 P600\nM300 S1108 P112\nM300 S1108 P112\nM300 S1244 P225\nM300 S1244 P450\nM300 S1108 P112\nM300 S1244 P112\nM300 S1318 P225\nM300 S1318 P600\nM300 S1244 P112\nM300 S1318 P112\nM300 S1244 P225\nM300 S493 P225\nM300 S1244 P225\nM300 S1108 P450\nM300 S1108 P225\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1244 P225\nM300 S1244 P450\nM300 S1108 P112\nM300 S1244 P112\nM300 S1318 P225\nM300 S1318 P450\nM300 S1244 P112\nM300 S1318 P112\nM300 S1244 P225\nM300 S493 P225\nM300 S1244 P225\nM300 S1108 P450\nM300 S1108 P225\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1244 P225\nM300 S1244 P450\nM300 S1108 P112\nM300 S1244 P112\nM300 S1318 P225\nM300 S1318 P450\nM300 S1244 P112\nM300 S1318 P112\nM300 S1244 P225\nM300 S493 P225\nM300 S1244 P225"
+  #define USER_DESC_7 "Smooth Criminal"
+  #define USER_GCODE_7 "M300 S0 P75\nM300 S1108 P300\nM300 S1108 P600\nM300 S1108 P112\nM300 S1108 P112\nM300 S1244 P225\nM300 S1244 P450\nM300 S1108 P112\nM300 S1244 P112\nM300 S1318 P225\nM300 S1318 P600\nM300 S1244 P112\nM300 S1318 P112\nM300 S1244 P225\nM300 S493 P225\nM300 S1244 P225\nM300 S1108 P450\nM300 S1108 P225\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1244 P225\nM300 S1244 P450\nM300 S1108 P112\nM300 S1244 P112\nM300 S1318 P225\nM300 S1318 P450\nM300 S1244 P112\nM300 S1318 P112\nM300 S1244 P225\nM300 S493 P225\nM300 S1244 P225\nM300 S1108 P450\nM300 S1108 P225\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1108 P112\nM300 S1244 P225\nM300 S1244 P450\nM300 S1108 P112\nM300 S1244 P112\nM300 S1318 P225\nM300 S1318 P450\nM300 S1244 P112\nM300 S1318 P112\nM300 S1244 P225\nM300 S493 P225\nM300 S1244 P225"
 
   #define USER_DESC_12 "Axel F"
   #define USER_GCODE_12 "M300 S1567 P480\nM300 S932 P360\nM300 S1567 P120\nM300 S0 P120\nM300 S1567 P120\nM300 S2093 P240\nM300 S1567 P240\nM300 S1396 P240\nM300 S1567 P480\nM300 S2349 P360\nM300 S1567 P120\nM300 S0 P120\nM300 S1567 P120\nM300 S2489 P240\nM300 S2349 P240\nM300 S932 P240\nM300 S1567 P240\nM300 S2349 P240\nM300 S3135 P240\nM300 S1567 P120\nM300 S1396 P120\nM300 S0 P120\nM300 S1396 P120\nM300 S1174 P240\nM300 S932 P240\nM300 S1567 P960\nM300 S0 P480\nM300 S2793 P120\nM300 S2349 P240\nM300 S2093 P240\nM300 S932 P240\nM300 S1567 P480\nM300 S932 P360\nM300 S1567 P120\nM300 S0 P120\nM300 S1567 P120\nM300 S2093 P240\nM300 S1567 P240\nM300 S1396 P240\nM300 S1567 P480\nM300 S2349 P360\nM300 S1567 P120\nM300 S0 P120\nM300 S1567 P120\nM300 S2489 P240\nM300 S2349 P240\nM300 S932 P240\nM300 S1567 P240\nM300 S2349 P240"

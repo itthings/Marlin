@@ -155,7 +155,7 @@
 #endif
 #define NICE_HOMING
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Have a nice xmas :)"
+#define CUSTOM_MACHINE_NAME "Have a great year of printing things!"
 #define TEST_FEATURE
 
 // Printer's unique ID, used by some programs to differentiate between machines.
@@ -523,9 +523,15 @@
     #define DEFAULT_Ki_LIST {   1.63,   1.63 }
     #define DEFAULT_Kd_LIST {  76.48,  76.48 }
   #else
-    #define DEFAULT_Kp  22.36
-    #define DEFAULT_Ki   1.63
-    #define DEFAULT_Kd  76.48
+
+  //pid tune 25 dec 2020 - 195c fan 100%
+    #define DEFAULT_Kp  31.06
+    #define DEFAULT_Ki   3.18
+    #define DEFAULT_Kd  75.90
+
+    //#define DEFAULT_Kp  22.36
+    //#define DEFAULT_Ki   1.63
+    //#define DEFAULT_Kd  76.48
   #endif
 #endif // PIDTEMP
 
@@ -871,7 +877,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 200, 200, 200, 200}
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 300, 300}
 
 #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -884,7 +890,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION       { 3000, 3000, 3000, 30000 }
+#define DEFAULT_MAX_ACCELERATION       { 6000, 6000, 6000, 30000 }
 
 #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -899,9 +905,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          750    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1148,10 +1154,10 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 18
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED 200*70 //(40*60) //(16*60)
+#define XY_PROBE_SPEED 250*60 //(40*60) //(16*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST (HOMING_FEEDRATE_Z / 2)
@@ -1436,9 +1442,9 @@
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for the G26 Mesh Validation Tool.
-    #define MESH_TEST_HOTEND_TEMP  235    // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
-    #define MESH_TEST_BED_TEMP      50    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
-    #define G26_XY_FEEDRATE         40    // (mm/s) Feedrate for XY Moves for the G26 Mesh Validation Tool.
+    #define MESH_TEST_HOTEND_TEMP  210    // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_BED_TEMP      45    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
+    #define G26_XY_FEEDRATE         45    // (mm/s) Feedrate for XY Moves for the G26 Mesh Validation Tool.
     #define G26_RETRACT_MULTIPLIER   2.0  // G26 Q (retraction) used by default between mesh test elements.
   #endif
 
@@ -1563,8 +1569,8 @@
 
 // Homing speeds (mm/min)
 // Delta only homes to Z
-#define HOMING_FEEDRATE_XY 70*60//  (40*60)
-#define HOMING_FEEDRATE_Z  70*60 //(40*60) //(30*60)
+#define HOMING_FEEDRATE_XY 90*60//  (40*60)
+#define HOMING_FEEDRATE_Z  90*60 //(40*60) //(30*60)
 //?
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1678,8 +1684,8 @@
 #define PREHEAT_1_FAN_SPEED   100 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "PET"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    55
+#define PREHEAT_2_TEMP_HOTEND 215
+#define PREHEAT_2_TEMP_BED    50
 #define PREHEAT_2_FAN_SPEED   100 // Value from 0 to 255
 
 /**
@@ -1697,7 +1703,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { 0, 0, 250 }
+  #define NOZZLE_PARK_POINT { 0, 0, 150 }
   //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN   30   // (mm) Always raise Z by at least this distance
