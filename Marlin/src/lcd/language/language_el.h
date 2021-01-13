@@ -190,3 +190,5 @@ namespace Language_el {
 
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Εσφαλμένος εκτυπωτής");
 }
+  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");

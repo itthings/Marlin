@@ -644,3 +644,5 @@ namespace Language_de {
   PROGMEM Language_Str MSG_REHEAT                          = _UxGT("Erneut aufheizen");
   PROGMEM Language_Str MSG_REHEATING                       = _UxGT("Erneut aufhei. ...");
 }
+  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");

@@ -41,11 +41,13 @@
 //
 // Trinamic Stallguard pins
 //
+
+//swap Z and E1 as Z sockets given up the ghost
 #define X_DIAG_PIN                         P1_29  // X-
 #define Y_DIAG_PIN                         P1_27  // Y-
-#define Z_DIAG_PIN                         P1_25  // Z-
+#define Z_DIAG_PIN                      P1_26  // P1_25  // Z-
 #define E0_DIAG_PIN                        P1_28  // X+
-#define E1_DIAG_PIN                        P1_26  // Y+
+#define E1_DIAG_PIN                    P1_25 //    P1_26  // Y+
 
 //
 // Limit Switches
@@ -110,12 +112,14 @@
   #define Y_CS_PIN                         P1_08
 #endif
 
-#define Z_STEP_PIN                         P0_22
-#define Z_DIR_PIN                          P2_11
-#define Z_ENABLE_PIN                       P0_21
+#define Z_STEP_PIN                     P0_01//    P0_22
+#define Z_DIR_PIN                      P0_00//    P2_11
+#define Z_ENABLE_PIN                   P0_10//    P0_21
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                         P1_10
+  #define Z_CS_PIN                     P1_17//    P1_10
 #endif
+
+
 
 #define E0_STEP_PIN                        P2_13
 #define E0_DIR_PIN                         P0_11
@@ -124,11 +128,11 @@
   #define E0_CS_PIN                        P1_15
 #endif
 
-#define E1_STEP_PIN                        P0_01
-#define E1_DIR_PIN                         P0_00
-#define E1_ENABLE_PIN                      P0_10
+#define E1_STEP_PIN                   P0_22  //   P0_01
+#define E1_DIR_PIN                    P2_11  //   P0_00
+#define E1_ENABLE_PIN                 P0_21 //    P0_10
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                        P1_17
+  #define E1_CS_PIN                   P1_10  //   P1_17
 #endif
 
 //
@@ -175,14 +179,14 @@
   #define Y_SERIAL_TX_PIN                  P1_09
   #define Y_SERIAL_RX_PIN                  P1_08
 
-  #define Z_SERIAL_TX_PIN                  P1_14
-  #define Z_SERIAL_RX_PIN                  P1_10
+  #define Z_SERIAL_TX_PIN              P4_29  //  P1_14
+  #define Z_SERIAL_RX_PIN              P1_17//    P1_10
 
   #define E0_SERIAL_TX_PIN                 P1_16
   #define E0_SERIAL_RX_PIN                 P1_15
 
-  #define E1_SERIAL_TX_PIN                 P4_29
-  #define E1_SERIAL_RX_PIN                 P1_17
+  #define E1_SERIAL_TX_PIN            P1_14    // P4_29
+  #define E1_SERIAL_RX_PIN            P1_10   //  P1_17
 
   #define Z2_SERIAL_TX_PIN                 P4_29
   #define Z2_SERIAL_RX_PIN                 P1_17
@@ -358,4 +362,4 @@
 //
 //#define PIN_P0_02                        P0_02  // AUX1 (Interrupt Capable/ADC/Serial Port 0)
 //#define PIN_P0_03                        P0_03  // AUX1 (Interrupt Capable/ADC/Serial Port 0)
-//#define PS_ON_PIN                        P1_23  // SERVO P1.23
+#define PS_ON_PIN                       P2_00 //   P1_23  // SERVO P1.23

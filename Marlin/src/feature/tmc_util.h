@@ -346,6 +346,10 @@ void test_tmc_connection(const bool test_x, const bool test_y, const bool test_z
  *
  * Defined here because of limitations with templates and headers.
  */
+struct slow_homing_t {
+      xy_ulong_t acceleration;
+      TERN_(HAS_CLASSIC_JERK, xy_float_t jerk_xy);
+    };
 #if USE_SENSORLESS
 
   // Track enabled status of stealthChop and only re-enable where applicable
@@ -355,10 +359,7 @@ void test_tmc_connection(const bool test_x, const bool test_y, const bool test_z
     extern millis_t sg_guard_period;
     constexpr uint16_t default_sg_guard_duration = 400;
 
-    struct slow_homing_t {
-      xy_ulong_t acceleration;
-      TERN_(HAS_CLASSIC_JERK, xy_float_t jerk_xy);
-    };
+    
   #endif
 
   bool tmc_enable_stallguard(TMC2130Stepper &st);
