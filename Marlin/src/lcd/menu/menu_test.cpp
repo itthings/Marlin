@@ -41,7 +41,7 @@
 
 
    static void _calibrate() {
-    PGM_P cal = PSTR("M190 40\nG28\nG33 P1\nG28 P3\nG29 A\nG29A");
+    PGM_P cal = PSTR("M190 40\nG28\nG33\nG28\nG29 P1\nG29 P3\nG29 F 10.0 \nG29 S0\nG29 A\nM500");
     //PGM_P home = PSTR("G28");
     //PGM_P d_cal = PSTR("G33 V3");
     //PGM_P level = PSTR("G29 P0 V4\nG29 P1 V4\nG29 P3 V4\nG29 S1 V4\nG29 T0 V4\nG29 T1 V4\nG29 A\nG29 F 10.0");

@@ -660,8 +660,8 @@ namespace Language_en {
 
   PROGMEM Language_Str MSG_PROBE_WIZARD                    = _UxGT("Z Probe Wizard");
 
-  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate");
-  PROGMEM Language_Str MSG_TEST                           = _UxGT("TEST menu");
+  PROGMEM Language_Str MSG_CALIBRATE                      = _UxGT("Calibrate All");
+  PROGMEM Language_Str MSG_TEST                           = _UxGT("*");
 }
 
 #if FAN_COUNT == 1

@@ -1347,7 +1347,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION LCD
+  #define SDCARD_CONNECTION ONBOARD
 
 #endif // SDSUPPORT
 
@@ -3266,8 +3266,8 @@
   #define USER_DESC_9 "G26 PET 0.4"
   #define USER_GCODE_9 "G28\nG26 C1 B50 H235 S0.4 P5 Q1"
 
-  #define USER_DESC_1 "Calibrate"
-  #define USER_GCODE_1 "G28\nG33 V3\nM500\nM0 UBL Level...\nG29 P1\nG29 P3\nG29 S1 V4\nG29 T\nG29 A\nG29 F 10.0\nM500\nM117 happy xmas"
+  #define USER_DESC_1 "Update"
+  #define USER_GCODE_1 "M997"
 
 #define USER_DESC_2 "G33 P1 V3"
   #define USER_GCODE_2 "G33 P1 V3"

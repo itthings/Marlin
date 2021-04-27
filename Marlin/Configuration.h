@@ -155,7 +155,7 @@
 #endif
 #define NICE_HOMING
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "v1.0..DO CV!!"
+#define CUSTOM_MACHINE_NAME "v1.2..DO CV!!"
 #define TEST_FEATURE
 
 // Printer's unique ID, used by some programs to differentiate between machines.
@@ -877,11 +877,11 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 230, 230, 230, 230}
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 200, 200}
 
 #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 600, 400 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 300, 300, 300, 300 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -905,9 +905,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          750    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   1250    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1145,7 +1145,7 @@
  *     O-- FRONT --+
  */
 #if ANYCUBIC_PROBE_VERSION == 2
-  #define NOZZLE_TO_PROBE_OFFSET { 0, 0, -16.5}//-15.54 }
+  #define NOZZLE_TO_PROBE_OFFSET { 0, 0, -21.9}//-15.54 }
 #elif ANYCUBIC_PROBE_VERSION == 1
   #define NOZZLE_TO_PROBE_OFFSET { 0, 0, -19.0 }
 #else
@@ -1157,7 +1157,7 @@
 #define PROBING_MARGIN 15
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED 250*60 //(40*60) //(16*60)
+#define XY_PROBE_SPEED 100*60 //(40*60) //(16*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST (HOMING_FEEDRATE_Z / 2)
@@ -1202,7 +1202,7 @@
 #define Z_PROBE_LOW_POINT          -5 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
-#define Z_PROBE_OFFSET_RANGE_MIN -20
+#define Z_PROBE_OFFSET_RANGE_MIN -27
 #define Z_PROBE_OFFSET_RANGE_MAX 10
 
 // Enable the M48 repeatability test to test probe accuracy
@@ -1569,8 +1569,8 @@
 
 // Homing speeds (mm/min)
 // Delta only homes to Z
-#define HOMING_FEEDRATE_XY 90*60//  (40*60)
-#define HOMING_FEEDRATE_Z  90*60 //(40*60) //(30*60)
+#define HOMING_FEEDRATE_XY 70*60//  (40*60)
+#define HOMING_FEEDRATE_Z  70*60 //(40*60) //(30*60)
 //?
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
